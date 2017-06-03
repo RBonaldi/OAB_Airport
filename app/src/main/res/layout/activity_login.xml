@@ -1,0 +1,82 @@
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="#fbff00"
+    android:stretchColumns="0,1,2,3,4,5,6"
+    tools:context="com.example.administrador.OAB_airport.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" android:orientation="vertical"
+        android:layout_centerInParent="true">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" android:src="@drawable/logo"/>
+
+    </LinearLayout>
+
+        <TableRow
+            android:id="@+id/tableRow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_column="0"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" android:src="@drawable/user"/>
+
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:layout_span="6"
+                android:id="@+id/edtUsuario"
+                android:inputType="textEmailAddress"
+                android:hint="Entre com o usuário"/>
+
+        </TableRow>
+
+        <TableRow
+            android:id="@+id/tableRow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="30dp">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_column="0"
+                android:layout_weight="1"
+                android:layout_height="wrap_content" android:src="@drawable/password"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_column="1"
+                android:layout_weight="1"
+                android:layout_span="6"
+                android:id="@+id/edtSenha"
+                android:hint="Entre com a senha"
+                android:layout_marginBottom="20px"
+                android:inputType="textPassword"/>
+
+        </TableRow>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/botao_entrar"
+            android:height="140px"
+            android:textSize="65px"
+            android:background="#fff"
+            android:textColor="#faca08"
+            android:id="@+id/btnEntrar"/>
+
+</TableLayout>
