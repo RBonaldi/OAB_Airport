@@ -24,11 +24,18 @@
         </activity>
         <activity
             android:name=".HomeActivity"
-            android:label="@string/title_activity_home" >
+            android:label="@string/title_activity_home"
+            android:theme="@style/AppTheme.FullScreen">
         </activity>
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.FullScreen" >
+        </activity>
+        <activity
+            android:name=".ReclamacaoCadastroActivity"
+            android:label="ReclamacaoCadastroActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.FullScreen" >
         </activity>

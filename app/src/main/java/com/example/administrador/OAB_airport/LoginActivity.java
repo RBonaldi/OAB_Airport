@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.administrador.OAB_airport.fw.SharedPreferencesHelper;
@@ -24,15 +25,17 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
-
-        Button btnEntrar = (Button)findViewById(R.id.btnEntrar);
+        ImageButton btnEntrar = (ImageButton)findViewById(R.id.btnEntrar);
         btnEntrar.setOnClickListener(this);
 
     }
 
     @Override
     public void onClick(View v) {
+
+        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+        startActivity(intent);
+        finish();
 
         pd = new ProgressDialog(this);
         pd.setMessage("Entrando...");
