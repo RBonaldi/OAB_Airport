@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="20dp"
+    android:padding="10dp"
     android:background="#fbff00">
 
     <LinearLayout
@@ -25,32 +25,54 @@
     </LinearLayout>
 
     <Switch
-        android:id="@+id/sw_EstaNoAeroporto"
+        android:id="@+id/sw_estaNoAeroporto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Estou no aeroporto" />
 
     <TextView
-        android:id="@+id/lb_NomeAeroporto"
+        android:id="@+id/lb_nome"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nome do Aeroporto/ES"
+        android:text="Nome do Aeroporto/Estado"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:textColor="#000"/>
 
     <EditText
-        android:id="@+id/txt_NomeAeroporto"
+        android:id="@+id/txt_nome"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
         android:inputType="textPersonName"/>
 
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
+    <TextView
+        android:id="@+id/lb_descricao"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Descrição do Problema"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:textColor="#000"/>
+
+    <EditText
+        android:id="@+id/editText5"
         android:layout_width="match_parent"
-        android:layout_height="90dp" />
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textMultiLine" />
+
+    <Button
+        android:layout_marginTop="40dp"
+        android:id="@+id/button2"
+        android:background="#0000ff"
+        android:textColor="#fff"
+        android:textSize="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Salvar" />
 
 
 </LinearLayout>

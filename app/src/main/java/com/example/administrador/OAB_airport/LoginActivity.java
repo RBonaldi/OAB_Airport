@@ -16,7 +16,7 @@ import com.example.administrador.OAB_airport.task.LoginTask;
 import com.example.administrador.OAB_airport.to.TOBase;
 import com.example.administrador.OAB_airport.to.TOUsuario;
 
-public class LoginActivity extends ActionBarActivity implements View.OnClickListener{
+public class LoginActivity extends ActionBarActivity implements View.OnClickListener {
 
     private ProgressDialog pd;
 
@@ -28,11 +28,29 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         ImageButton btnEntrar = (ImageButton)findViewById(R.id.btnEntrar);
         btnEntrar.setOnClickListener(this);
 
+        Button btnNovoUsuario = (Button)findViewById(R.id.btn_NovoUsuario);
+        btnNovoUsuario.setOnClickListener(this);
+
     }
 
     @Override
     public void onClick(View v) {
 
+        switch (v.getId()) {
+
+            case R.id.btnEntrar:
+
+                logar();
+                break;
+
+            case R.id.btn_NovoUsuario:
+
+                NovoUsuario();
+                break;
+        }
+    }
+
+    private void logar(){
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         startActivity(intent);
         finish();
@@ -64,7 +82,7 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
                         finish();
                     }else{
 
-                        Toast.makeText(LoginActivity.this, "Usuario e/ou senha inválidos", Toast.LENGTH_LONG).show();
+                        Toast.makeText(LoginActivity.this, "Usuário e/ou senha inválidos", Toast.LENGTH_LONG).show();
 
                     }
                 }
@@ -73,6 +91,12 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
         };
 
         login.execute(usuario, senha);
+    }
 
+    private void NovoUsuario(){
+
+        Intent intent = new Intent(LoginActivity.this, UsuarioCadastroActivity.class);
+        startActivity(intent);
+        finish();
     }
 }

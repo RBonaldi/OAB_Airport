@@ -28,9 +28,9 @@ public class ReclamacaoCadastroActivity extends ActionBarActivity implements Vie
 
         pd = new ProgressDialog(this);
 
-        swEstaNoAeroporto = (Switch)findViewById(R.id.sw_EstaNoAeroporto);
-        txtNomeAeroporto = (EditText)findViewById(R.id.txt_NomeAeroporto);
-        lbNomeAeroporto = (TextView)findViewById(R.id.lb_NomeAeroporto);
+        swEstaNoAeroporto = (Switch)findViewById(R.id.sw_estaNoAeroporto);
+        txtNomeAeroporto = (EditText)findViewById(R.id.txt_nome);
+        lbNomeAeroporto = (TextView)findViewById(R.id.lb_nome);
 
         swEstaNoAeroporto.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
 
@@ -43,15 +43,13 @@ public class ReclamacaoCadastroActivity extends ActionBarActivity implements Vie
 
                     pd.setMessage("Abrindo mapa, por favor aguarde...");
                     pd.show();
-                    txtNomeAeroporto.setVisibility(View.INVISIBLE);
-                    lbNomeAeroporto.setVisibility(View.INVISIBLE);
+                    txtNomeAeroporto.setText("");
                 }
                 else
                 {
                     pd.setMessage("Fechando mapa, por favor aguarde...");
                     pd.show();
-                    txtNomeAeroporto.setVisibility(View.VISIBLE);
-                    lbNomeAeroporto.setVisibility(View.VISIBLE);
+                    txtNomeAeroporto.setText("");
                 }
                 pd.hide();
             }
