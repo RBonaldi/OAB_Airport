@@ -1,5 +1,6 @@
 package com.example.administrador.OAB_airport;
 
+import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -19,18 +20,20 @@ import com.example.administrador.OAB_airport.to.TOUsuario;
 public class LoginActivity extends ActionBarActivity implements View.OnClickListener {
 
     private ProgressDialog pd;
+    private DB_Controller controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        controller = new DB_Controller(this, "", null, 1);
+
         ImageButton btnEntrar = (ImageButton)findViewById(R.id.btnEntrar);
         btnEntrar.setOnClickListener(this);
 
         Button btnNovoUsuario = (Button)findViewById(R.id.btn_NovoUsuario);
         btnNovoUsuario.setOnClickListener(this);
-
     }
 
     @Override
@@ -51,46 +54,24 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
     }
 
     private void logar(){
-        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
-        startActivity(intent);
-        finish();
-
-        pd = new ProgressDialog(this);
-        pd.setMessage("Entrando...");
-        pd.show();
-
         EditText edtUsuario = (EditText)findViewById(R.id.edtUsuario);
         String usuario = edtUsuario.getText().toString();
         EditText edtSenha = (EditText)findViewById(R.id.edtSenha);
         String senha = edtSenha.getText().toString();
 
-        LoginTask login = new LoginTask(){
-            @Override
-            protected void onPostExecute(TOBase toBase) {
-
-                pd.hide();
-
-                if(toBase != null){
-                    TOUsuario u = (TOUsuario)toBase;
-                    if(u.isSucesso()){
-
-
-                        SharedPreferencesHelper.write(LoginActivity.this, "user_preferences","user",u.toString());
-                        Intent i = new Intent(LoginActivity.this, HomeActivity.class);
-                        OAB_airportApplication.getInstance().setUsuario(u);
-                        startActivity(i);
-                        finish();
-                    }else{
-
-                        Toast.makeText(LoginActivity.this, "Usuário e/ou senha inválidos", Toast.LENGTH_LONG).show();
-
-                    }
-                }
-
-            }
-        };
-
-        login.execute(usuario, senha);
+        if(controller.validar_Usuario(usuario, senha)){
+            Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+            startActivity(intent);
+            finish();
+        }
+        else{
+            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
+            dlgAlert.setMessage("Email ou senha incorreta.");
+            dlgAlert.setTitle("Atenção");
+            dlgAlert.setPositiveButton("OK", null);
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+        }
     }
 
     private void NovoUsuario(){

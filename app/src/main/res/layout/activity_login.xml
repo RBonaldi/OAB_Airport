@@ -64,7 +64,6 @@
                 android:hint="Entre com a senha"
                 android:layout_marginBottom="20px"
                 android:inputType="textPassword"/>
-
         </TableRow>
 
     <LinearLayout

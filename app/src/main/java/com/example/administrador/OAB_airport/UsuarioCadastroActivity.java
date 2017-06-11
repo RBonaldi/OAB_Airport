@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.view.View;
 import android.widget.Button;
@@ -52,41 +53,71 @@ public class UsuarioCadastroActivity extends ActionBarActivity implements View.O
 
     @Override
     public void onClick(View view) {
-
-        pd = new ProgressDialog(this);
-        pd.setMessage("Criando usuário, por favor aguarde...");
-        pd.show();
+        AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
 
         if(txtNome.getText().toString().equals("")){
-
-            AlertDialog.Builder dlgAlert  = new AlertDialog.Builder(this);
-            dlgAlert.setMessage("This is an alert with no consequence");
-            dlgAlert.setTitle("App Title");
+            dlgAlert.setMessage("Favor preencher o nome");
+            dlgAlert.setTitle("Atenção");
+            dlgAlert.setPositiveButton("OK", null);
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+        }
+        else if(txtCPF.getText().toString().equals("")){
+            dlgAlert.setMessage("Favor preencher o CPF");
+            dlgAlert.setTitle("Atenção");
+            dlgAlert.setPositiveButton("OK", null);
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+        }
+        else if(txtTelefone.getText().toString().equals("")){
+            dlgAlert.setMessage("Favor preencher o telefone");
+            dlgAlert.setTitle("Atenção");
+            dlgAlert.setPositiveButton("OK", null);
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
+        }
+        else if(txtEmail.getText().toString().equals("")){
+            dlgAlert.setMessage("Favor preencher o email");
+            dlgAlert.setTitle("Atenção");
+            dlgAlert.setPositiveButton("OK", null);
+            dlgAlert.setCancelable(true);
             dlgAlert.create().show();
 
         }
-        else if(txtCPF.getText().toString().equals("")){
-
-        }
-        else if(txtTelefone.getText().toString().equals("")){
-
-        }
-        else if(txtEmail.getText().toString().equals("")){
-
+        else if(txtSenha.getText().toString().equals("") || txtConfirmarSenha.getText().toString().equals("")){
+            dlgAlert.setMessage("Favor preencher a senha");
+            dlgAlert.setTitle("Atenção");
+            dlgAlert.setPositiveButton("OK", null);
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
         }
         else if(!txtSenha.getText().toString().equals(txtConfirmarSenha.getText().toString())){
-
+            dlgAlert.setMessage("Senhas não correspondem");
+            dlgAlert.setTitle("Atenção");
+            dlgAlert.setPositiveButton("OK", null);
+            dlgAlert.setCancelable(true);
+            dlgAlert.create().show();
         }
-
         else {
+            pd = new ProgressDialog(this);
+
             controller.insert_Usuario(txtNome.getText().toString(), txtCPF.getText().toString(), txtTelefone.getText().toString(), txtEmail.getText().toString(), txtSenha.getText().toString());
 
-            Intent intent = new Intent(UsuarioCadastroActivity.this, LoginActivity.class);
-            startActivity(intent);
-            finish();
+            Handler handler = new Handler();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    pd.hide();
+                    pd.setMessage("Usuário criado com sucesso...");
+                    pd.show();
+
+                    Intent intent = new Intent(UsuarioCadastroActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish();
+
+                    pd.hide();
+                }
+            }, 2000);
         }
-
-        pd.hide();
-
     }
 }

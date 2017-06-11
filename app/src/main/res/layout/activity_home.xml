@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="5dp"
-    android:stretchColumns="0,1,2,3"
+    android:stretchColumns="0,1"
     tools:context="com.example.administrador.OAB_airport.HomeActivity"
     android:background="#fbff00">
 
@@ -18,7 +18,7 @@
             android:layout_width="wrap_content"
             android:layout_height="120dp"
             android:layout_column="0"
-            android:layout_span="2"
+            android:layout_span="1"
             android:layout_weight="1"
             android:textSize="50px"
             android:background="#ffe6e6"
@@ -30,8 +30,8 @@
             android:id="@+id/bt_sair"
             android:layout_width="wrap_content"
             android:layout_height="120dp"
-            android:layout_column="2"
-            android:layout_span="2"
+            android:layout_column="1"
+            android:layout_span="1"
             android:layout_weight="1"
             android:textSize="50px"
             android:background="#e6f7ff"
