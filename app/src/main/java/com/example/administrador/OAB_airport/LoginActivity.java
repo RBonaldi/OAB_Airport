@@ -31,6 +31,9 @@ public class LoginActivity extends ActionBarActivity implements View.OnClickList
 
         Button btnNovoUsuario = (Button)findViewById(R.id.btn_NovoUsuario);
         btnNovoUsuario.setOnClickListener(this);
+
+        if(!controller.qtd_status())
+            controller.insert_Status();
     }
 
     @Override

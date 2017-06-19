@@ -102,7 +102,7 @@ public class DB_Controller extends SQLiteOpenHelper {
     }
 
     public void lista_Reclamacao(TextView textView){
-        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM Reclamacao", null);
+        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT a.aeroporto, b.descricao FROM Reclamacao a inner join Status b on a.status = b.id", null);
         textView.setText("");
         while (cursor.moveToNext()){
             textView.append(cursor.getString(0)+" "+cursor.getString(1));
@@ -111,6 +111,45 @@ public class DB_Controller extends SQLiteOpenHelper {
 
     public void lista_Usuario(TextView textView){
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM Usuario", null);
+        textView.setText("");
+        while (cursor.moveToNext()){
+            textView.append(cursor.getString(0)+" "+cursor.getString(1));
+        }
+    }
+
+    public void insert_Status(){
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("id", "1");
+        contentValues.put("descricao", "Enviado");
+        this.getWritableDatabase().insertOrThrow("Status", "", contentValues);
+
+        contentValues.put("id", "2");
+        contentValues.put("descricao", "Em Avaliação");
+        this.getWritableDatabase().insertOrThrow("Status", "", contentValues);
+
+        contentValues.put("id", "2");
+        contentValues.put("descricao", "Aprovado");
+        this.getWritableDatabase().insertOrThrow("Status", "", contentValues);
+
+        contentValues.put("id", "2");
+        contentValues.put("descricao", "Reprovado");
+        this.getWritableDatabase().insertOrThrow("Status", "", contentValues);
+    }
+
+    public boolean qtd_status() {
+        String countQuery = "SELECT * FROM Status";
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(countQuery, null);
+        int cnt = cursor.getCount();
+        cursor.close();
+        if(cnt > 0)
+            return true;
+        else
+            return false;
+    }
+
+    public void lista_Status(TextView textView){
+        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM Status", null);
         textView.setText("");
         while (cursor.moveToNext()){
             textView.append(cursor.getString(0)+" "+cursor.getString(1));
