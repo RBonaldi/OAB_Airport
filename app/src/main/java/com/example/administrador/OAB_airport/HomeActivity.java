@@ -10,6 +10,9 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
+import com.example.administrador.OAB_airport.BD.DB_Controller;
+import com.example.administrador.OAB_airport.BD.Session;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,19 +21,25 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
     private ProgressDialog pd;
     ListView lista;
     List<String> campeonatos;
+    private DB_Controller controller;
+    private Session session;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
+        controller = new DB_Controller(this, "", null, 5);
+
         ImageButton btnreclamacao = (ImageButton)findViewById(R.id.bt_reclamacao);
         btnreclamacao.setOnClickListener(this);
 
-        lista = (ListView) findViewById(R.id.lista);
+        session = new Session(this);
+        session.getusename();
 
+        lista = (ListView) findViewById(R.id.lista);
         campeonatos = new ArrayList<>();
-        campeonatos.add("Brasileiro");
+        campeonatos.add("oiii");
         campeonatos.add("Libertadores");
         campeonatos.add("Mineiro");
         campeonatos.add("Espanhol");

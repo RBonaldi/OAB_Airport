@@ -10,7 +10,7 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme"
-        android:name=".OAB_airportApplication">
+        android:name=".Util.OAB_airportApplication">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

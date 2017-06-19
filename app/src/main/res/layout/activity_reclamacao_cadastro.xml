@@ -31,6 +31,23 @@
         android:text="Estou no aeroporto" />
 
     <TextView
+        android:id="@+id/lb_dataHora"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Data e Hora do ocorrido"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:textColor="#000"/>
+
+    <EditText
+        android:id="@+id/txt_dataHora"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"/>
+
+    <TextView
         android:id="@+id/lb_nome"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
@@ -58,7 +75,7 @@
         android:textColor="#000"/>
 
     <EditText
-        android:id="@+id/editText5"
+        android:id="@+id/txt_descricao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
@@ -66,7 +83,7 @@
 
     <Button
         android:layout_marginTop="40dp"
-        android:id="@+id/button2"
+        android:id="@+id/bt_salvar"
         android:background="#0000ff"
         android:textColor="#fff"
         android:textSize="20dp"

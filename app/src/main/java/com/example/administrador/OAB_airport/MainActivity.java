@@ -7,9 +7,6 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.example.administrador.OAB_airport.fw.SharedPreferencesHelper;
-import com.example.administrador.OAB_airport.to.TOUsuario;
-
 
 public class MainActivity extends ActionBarActivity {
 
@@ -18,18 +15,7 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        String user = SharedPreferencesHelper.read(MainActivity.this, "user_preferences", "user", null);
-
-        if (user == null) {
-            abreLogin();
-        } else {
-            TOUsuario u = TOUsuario.createByJson(user, TOUsuario.class);
-            OAB_airportApplication.getInstance().setUsuario(u);
-
-            abreHome();
-        }
-
-
+        abreLogin();
     }
 
     private void abreLogin() {
