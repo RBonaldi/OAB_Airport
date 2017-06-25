@@ -45,6 +45,18 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.FullScreen" >
         </activity>
+        <activity
+            android:name=".ReclamacaoVisualizaActivity"
+            android:label="ReclamacaoVisualiza"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.FullScreen" >
+        </activity>
+        <activity
+            android:name=".DocumentoLeiActivity"
+            android:label="DocumentoLei"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.FullScreen" >
+        </activity>
     </application>
 
 </manifest>

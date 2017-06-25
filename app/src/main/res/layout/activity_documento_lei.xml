@@ -16,80 +16,47 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cadastrar Reclamação"
+            android:text="LEI 9099/95"
             android:layout_centerHorizontal="true"
             android:textSize="60px"
             android:layout_alignParentTop="true"
+            android:textStyle="bold"
             android:textColor="#000"/>
 
     </LinearLayout>
 
-    <Switch
-        android:id="@+id/sw_estaNoAeroporto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Estou no aeroporto" />
-
     <TextView
-        android:id="@+id/lb_dataHora"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Data e Hora do ocorrido"
+        android:text="LEI 9099/95: JUIZADO DE PEQUENAS CAUSAS"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
+        android:textStyle="bold"
         android:textColor="#000"/>
 
-    <EditText
-        android:id="@+id/txt_dataHora"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="number"/>
-
     <TextView
-        android:id="@+id/lb_nome"
         android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nome do Aeroporto/Estado"
+        android:text="A Lei 9099 de 26 de setembro de 1995, conhecida de Juizado de Pequenas Causas, nasceu por determinação expressa da Constituição Federal.
+
+A CF/88, em seu art. 98, I, estabeleceu que a União, no Distrito Federal e nos Territórios, e os Estados criassem os juizados especiais, providos por juízes togados, ou togados e leigos, competentes para a conciliação, o julgamento e a execução de causas cíveis de menor complexidade, mediante os procedimentos oral e sumaríssimo, e o julgamento de recursos por turmas de juízes de primeiro grau.
+
+Assim, cumprindo esse preceito constitucional nasceu a Lei 9099/95 criando o Juizado Especial Cível, também conhecido como de Pequenas Causas, que estabeleceu como critério de menor complexidade, e competência do Juizado, entre outros, o valor da causa, a qual não pode exceder a 40 (quarenta) vezes o salário mínimo."
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:textColor="#000"/>
-
-    <EditText
-        android:id="@+id/txt_nome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"/>
-
-    <TextView
-        android:id="@+id/lb_descricao"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Descrição do Problema"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentTop="true"
-        android:textColor="#000"/>
-
-    <EditText
-        android:id="@+id/txt_descricao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textMultiLine" />
 
     <Button
         android:layout_marginTop="40dp"
-        android:id="@+id/bt_salvar"
+        android:id="@+id/bt_entrar"
         android:background="#0000ff"
         android:textColor="#fff"
         android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Salvar" />
+        android:text="Criar Reclamação" />
 
 
 </LinearLayout>

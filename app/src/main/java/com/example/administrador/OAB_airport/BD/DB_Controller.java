@@ -47,10 +47,6 @@ public class DB_Controller extends SQLiteOpenHelper {
         this.getWritableDatabase().insertOrThrow("Usuario", "", contentValues);
     }
 
-    public void delete_Usuario(){
-        this.getWritableDatabase().delete("Usuario", null, null);
-    }
-
     public String Id_Usuario(String Email, String Senha){
         Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM Usuario where email='"+Email+"' and senha='"+Senha+"'", null);
         String val ="";
@@ -97,24 +93,18 @@ public class DB_Controller extends SQLiteOpenHelper {
         this.getWritableDatabase().delete("Reclamacao", "id='"+ID+"'", null);
     }
 
-    public void update_Usuario(String Status, String ID) {
-        this.getWritableDatabase().execSQL("Update Reclamacao set status='" + Status + "' where  id='" + ID + "'");
+    public void update_Reclamacao(String Status, String ID) {
+        this.getWritableDatabase().execSQL("Update Reclamacao set status='" + Status + "' where id='" + ID + "'");
     }
 
-    public void lista_Reclamacao(TextView textView){
-        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT a.aeroporto, b.descricao FROM Reclamacao a inner join Status b on a.status = b.id", null);
-        textView.setText("");
-        while (cursor.moveToNext()){
-            textView.append(cursor.getString(0)+" "+cursor.getString(1));
-        }
+    public Cursor lista_Reclamacao(String ID){
+        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT a.id, a.aeroporto, b.descricao FROM Reclamacao a inner join Status b on a.status = b.id where idUser = '"+ID+"'", null);
+        return cursor;
     }
 
-    public void lista_Usuario(TextView textView){
-        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM Usuario", null);
-        textView.setText("");
-        while (cursor.moveToNext()){
-            textView.append(cursor.getString(0)+" "+cursor.getString(1));
-        }
+    public Cursor Item_Reclamacao(String IdReclamacao){
+        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT a.aeroporto, a.descricao, b.descricao as status, a.dataHora FROM Reclamacao a inner join Status b on a.status = b.id where a.id = '"+IdReclamacao+"'", null);
+        return cursor;
     }
 
     public void insert_Status(){
@@ -127,11 +117,11 @@ public class DB_Controller extends SQLiteOpenHelper {
         contentValues.put("descricao", "Em Avaliação");
         this.getWritableDatabase().insertOrThrow("Status", "", contentValues);
 
-        contentValues.put("id", "2");
+        contentValues.put("id", "3");
         contentValues.put("descricao", "Aprovado");
         this.getWritableDatabase().insertOrThrow("Status", "", contentValues);
 
-        contentValues.put("id", "2");
+        contentValues.put("id", "4");
         contentValues.put("descricao", "Reprovado");
         this.getWritableDatabase().insertOrThrow("Status", "", contentValues);
     }
@@ -146,13 +136,5 @@ public class DB_Controller extends SQLiteOpenHelper {
             return true;
         else
             return false;
-    }
-
-    public void lista_Status(TextView textView){
-        Cursor cursor = this.getReadableDatabase().rawQuery("SELECT * FROM Status", null);
-        textView.setText("");
-        while (cursor.moveToNext()){
-            textView.append(cursor.getString(0)+" "+cursor.getString(1));
-        }
     }
 }

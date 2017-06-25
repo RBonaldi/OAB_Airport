@@ -75,19 +75,17 @@ public class UsuarioCadastroActivity extends ActionBarActivity implements View.O
 
             controller.insert_Usuario(txtNome.getText().toString(), txtCPF.getText().toString(), txtTelefone.getText().toString(), txtEmail.getText().toString(), txtSenha.getText().toString());
 
+            pd.hide();
+            pd.setMessage("Usuário criado com sucesso...");
+            pd.show();
+
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    pd.hide();
-                    pd.setMessage("Usuário criado com sucesso...");
-                    pd.show();
-
                     Intent intent = new Intent(UsuarioCadastroActivity.this, LoginActivity.class);
                     startActivity(intent);
                     finish();
-
-                    pd.hide();
                 }
             }, 2000);
         }

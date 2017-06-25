@@ -16,7 +16,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Cadastrar Reclamação"
+            android:text="Visualizar Reclamação"
             android:layout_centerHorizontal="true"
             android:textSize="60px"
             android:layout_alignParentTop="true"
@@ -24,11 +24,24 @@
 
     </LinearLayout>
 
-    <Switch
-        android:id="@+id/sw_estaNoAeroporto"
+    <TextView
+        android:id="@+id/lb_Status"
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Status"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:textStyle="bold"
+        android:textColor="#000"/>
+
+    <EditText
+        android:id="@+id/txt_Status"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Estou no aeroporto" />
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:enabled="false"/>
 
     <TextView
         android:id="@+id/lb_dataHora"
@@ -38,6 +51,7 @@
         android:text="Data e Hora do ocorrido"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
+        android:textStyle="bold"
         android:textColor="#000"/>
 
     <EditText
@@ -45,7 +59,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="number"/>
+        android:inputType="textPersonName"
+        android:enabled="false"/>
 
     <TextView
         android:id="@+id/lb_nome"
@@ -55,6 +70,7 @@
         android:text="Nome do Aeroporto/Estado"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
+        android:textStyle="bold"
         android:textColor="#000"/>
 
     <EditText
@@ -62,7 +78,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"/>
+        android:inputType="textPersonName"
+        android:enabled="false"/>
 
     <TextView
         android:id="@+id/lb_descricao"
@@ -72,6 +89,7 @@
         android:text="Descrição do Problema"
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
+        android:textStyle="bold"
         android:textColor="#000"/>
 
     <EditText
@@ -79,17 +97,18 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textMultiLine" />
+        android:inputType="textMultiLine"
+        android:enabled="false"/>
 
     <Button
         android:layout_marginTop="40dp"
-        android:id="@+id/bt_salvar"
-        android:background="#0000ff"
+        android:id="@+id/bt_remover"
+        android:background="#ff0000"
         android:textColor="#fff"
         android:textSize="20dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Salvar" />
+        android:text="Excluir" />
 
 
 </LinearLayout>

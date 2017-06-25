@@ -91,19 +91,19 @@ public class ReclamacaoCadastroActivity extends ActionBarActivity implements Vie
             session = new Session(this);
             controller.insert_Reclamacao(session.getusename(), txtNomeAeroporto.getText().toString(), txtDescricao.getText().toString(), txtDataHora.getText().toString());
 
+            pd.hide();
+            pd.setMessage("Reclamação criado com sucesso...");
+            pd.show();
+
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
                 @Override
                 public void run() {
-                    pd.hide();
-                    pd.setMessage("Reclamação criado com sucesso...");
-                    pd.show();
+
 
                     Intent intent = new Intent(ReclamacaoCadastroActivity.this, HomeActivity.class);
                     startActivity(intent);
                     finish();
-
-                    pd.hide();
                 }
             }, 2000);
         }

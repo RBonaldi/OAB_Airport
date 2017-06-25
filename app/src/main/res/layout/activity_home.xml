@@ -27,7 +27,7 @@
             />
 
         <ImageButton
-            android:id="@+id/bt_sair"
+            android:id="@+id/bt_documento"
             android:layout_width="wrap_content"
             android:layout_height="120dp"
             android:layout_column="1"

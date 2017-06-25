@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.List;
@@ -15,17 +16,19 @@ import java.util.List;
 
 public class ListaAdapter extends BaseAdapter {
 
-    List<String> lista;
+    List<String> listaAeroporto;
+    List<String> listaStatus;
     Context context;
 
-    public ListaAdapter(List<String> lista, Context context) {
-        this.lista = lista;
+    public ListaAdapter(List<String> listaAeroporto, List<String> listaStatus, Context context) {
+        this.listaAeroporto = listaAeroporto;
+        this.listaStatus = listaStatus;
         this.context = context;
     }
 
     @Override
     public int getCount() {
-        return lista.size();
+        return listaAeroporto.size();
     }
 
     @Override
@@ -51,7 +54,25 @@ public class ListaAdapter extends BaseAdapter {
         TextView nome = (TextView) v.findViewById(R.id.nome);
 
         // setando texto na posição "position"
-        nome.setText(lista.get(position));
+        nome.setText(listaAeroporto.get(position));
+
+        ImageView img = (ImageView) v.findViewById(R.id.img_Status);
+
+        if(listaStatus.get(position).toString().equals("Enviado")) {
+            img.setImageResource(R.drawable.enviado);
+        }
+        else if(listaStatus.get(position).toString().equals("Em Avaliação")) {
+            img.setImageResource(R.drawable.avaliacao);
+        }
+        else if(listaStatus.get(position).toString().equals("Aprovado")) {
+            img.setImageResource(R.drawable.aprovado);
+        }
+        else {
+            img.setImageResource(R.drawable.reprovado);
+        }
+
+        // setando texto na posição "position"
+
 
         // retornando objeto View v
         return v;
