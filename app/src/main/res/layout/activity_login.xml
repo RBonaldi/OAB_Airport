@@ -37,7 +37,7 @@
                 android:layout_span="6"
                 android:id="@+id/edtUsuario"
                 android:inputType="textEmailAddress"
-                android:hint="Entre com o usuário"/>
+                android:hint="Entre com o e-mail"/>
 
         </TableRow>
 

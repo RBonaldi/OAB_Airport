@@ -27,6 +27,5 @@ public class DocumentoLeiActivity extends ActionBarActivity implements View.OnCl
     public void onClick(View view) {
         Intent intent = new Intent(DocumentoLeiActivity.this, ReclamacaoCadastroActivity.class);
         startActivity(intent);
-        finish();
     }
 }

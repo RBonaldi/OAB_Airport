@@ -95,7 +95,6 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
 
         Intent intent = new Intent(HomeActivity.this, ReclamacaoCadastroActivity.class);
         startActivity(intent);
-        finish();
     }
 
     public  void Documento(){
@@ -105,6 +104,5 @@ public class HomeActivity extends ActionBarActivity implements View.OnClickListe
 
         Intent intent = new Intent(HomeActivity.this, DocumentoLeiActivity.class);
         startActivity(intent);
-        finish();
     }
 }
